@@ -46,7 +46,7 @@ router.post("/contact", (req, res) => {
   })
 
   transporter.sendMail({
-    from: process.env.USER,
+    from: "devappagency@gmail.com",
     to: email,
     subject: "Submission was successful",
     text: `Thank you for contacting us!\n\nForm details\nName: ${name}\n Email: ${email}\n Message: ${message}`
