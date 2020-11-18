@@ -13,7 +13,9 @@ const contactEmail = nodemailer.createTransport({
   host: "smtp.gmail.com",
   port: 465,
   auth: {
-    api_key: process.env.ADMIN_EMAIL_API_KEY
+    type: "login",
+    user: process.env.USER,
+    pass: process.env.PASS,
   },
 });
 
