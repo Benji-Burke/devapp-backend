@@ -43,5 +43,18 @@ router.post("/contact", (req, res) => {
     } else {
       res.json({ status: "sent" });
     }
+  })
+
+  transporter.sendMail({
+    from: process.env.USER,
+    to: email,
+    subject: "Submission was successful",
+    text: `Thank you for contacting us!\n\nForm details\nName: ${name}\n Email: ${email}\n Message: ${message}`
+  }, function(error, info){
+    if(error) {
+      console.log(error);
+    } else{
+      console.log('Message sent: ' + info.response);
+    }
   });
 });
